@@ -37,10 +37,7 @@ while score < 50:
 
     # exits the game and exports missed states
     if answer == "Exit":
-        missing_states = []
-        for s in states:
-            if s not in guessed_answers:
-                missing_states.append(s)
+        missing_states = [s for s in states if s not in guessed_answers]
         final_data = pd.DataFrame(missing_states)
         final_data = pd.to_csv("missing_states.csv")
         break
